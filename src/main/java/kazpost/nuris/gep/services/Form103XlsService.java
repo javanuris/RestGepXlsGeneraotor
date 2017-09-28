@@ -12,22 +12,45 @@ import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
+/**
+ * Класс служит для генераций XLS файлов и сохранений их на FTP сервере.
+ *
+ * @version 1.0
+ * @autor Nurislam Kalenov
+ */
 
+@Service
 public class Form103XlsService {
-
+    /**
+     * Формат в котором необходимо сохранять Excel файлы.
+     */
     private static final String XLS_FILE_FORMAT = ".xls";
+    private static final String SHEET_NAME = "Form103";
     private static final int FTP_PORT = 21;
 
-    public void generateForm103XlsFile(Form103XlsSheet form103XlsSheet) {
-        HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("Form103");
+    /**
+     * C 8 строки ничанаеться оснавная часть, куда необходима класть данные.
+     */
+    private static final int BODY_ROW_ORDER = 8;
+    /**
+     * Количество строк в Excel таблице.
+     */
+    private static final int TOTAL_COLUMN_COUNT = 12;
+
+    @Autowired
+    private HSSFWorkbook workbook;
+
+    public void generateForm103XlsFile(Form103XlsSheet form103XlsSheet) throws Exception {
+        HSSFSheet sheet = workbook.createSheet(SHEET_NAME);
 
         createXlsHeaderPart(form103XlsSheet, sheet);
         createXlsBodyPart(workbook, sheet);
 
-        int rowOrder = 8;
+        int rowOrder = BODY_ROW_ORDER;
         for (Form103XlsCellBodyDescription f : form103XlsSheet.getForm103XlsCellBodyDescription()) {
 
             Row row = sheet.createRow(rowOrder);
@@ -48,7 +71,7 @@ public class Form103XlsService {
             rowOrder++;
         }
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < TOTAL_COLUMN_COUNT; i++) {
             sheet.autoSizeColumn(i);
         }
 
@@ -103,7 +126,7 @@ public class Form103XlsService {
         style.setBorderTop(BorderStyle.MEDIUM);
         rowBodyTableDescription.setRowStyle(style);
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < TOTAL_COLUMN_COUNT; i++) {
             rowBodyTableDescription.getCell(i).setCellStyle(style);
         }
 
@@ -171,10 +194,10 @@ public class Form103XlsService {
             String pathAndNameUploadFile = form103XlsInfo.getFilePath() + "/" + form103XlsInfo.getFileName() + XLS_FILE_FORMAT;
 
             boolean done = ftpClient.storeFile(pathAndNameUploadFile, uploadFile);
-            if(done){
-                System.out.println("Файл загружен");
-            }else{
-                System.out.println("Файл не загружен");
+            if (done) {
+                System.out.println("Файл " + pathAndNameUploadFile + " загружен");
+            } else {
+                System.out.println("Файл " + pathAndNameUploadFile + " не загружен");
             }
 
         } catch (IOException e) {

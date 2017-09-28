@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Form103XlsSheet {
 
-    private Form103XlsCellHeaderDescription form103XlsCellHeaderDescription ;
-    private List<Form103XlsCellBodyDescription> form103XlsCellBodyDescription ;
-    private Form103XlsInfo form103XlsInfo ;
+    private Form103XlsCellHeaderDescription form103XlsCellHeaderDescription;
+    private List<Form103XlsCellBodyDescription> form103XlsCellBodyDescription;
+    private Form103XlsInfo form103XlsInfo;
 
-    public Form103XlsSheet(){
+    public Form103XlsSheet() {
 
     }
 
