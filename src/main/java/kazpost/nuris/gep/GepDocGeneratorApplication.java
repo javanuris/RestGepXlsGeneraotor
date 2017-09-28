@@ -1,9 +1,9 @@
-package kazpost.nuris.demo;
+package kazpost.nuris.gep;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages={"kazpost.nuris.demo"})
+@SpringBootApplication(scanBasePackages={"kazpost.nuris.gep"})
 public class GepDocGeneratorApplication {
 
 	public static void main(String[] args) {
