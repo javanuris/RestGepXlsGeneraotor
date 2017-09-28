@@ -33,11 +33,11 @@ public class Form103XlsService {
     private static final int FTP_PORT = 21;
 
     /**
-     * C 8 строки ничанаеться оснавная часть, куда необходима класть данные.
+     * C 8 строки ничанаеться основная, "Body" часть, куда необходима класть данные.
      */
     private static final int BODY_ROW_ORDER = 8;
     /**
-     * Количество строк в Excel таблице.
+     * Количество столбцов в Excel таблице.
      */
     private static final int TOTAL_COLUMN_COUNT = 12;
 
@@ -45,6 +45,7 @@ public class Form103XlsService {
     private HSSFWorkbook workbook;
 
     public void generateForm103XlsFile(Form103XlsSheet form103XlsSheet) throws Exception {
+        workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet(SHEET_NAME);
 
         createXlsHeaderPart(form103XlsSheet, sheet);
