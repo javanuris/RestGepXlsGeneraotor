@@ -1,8 +1,9 @@
 package kazpost.nuris.gep.models;
 
-import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
+@XmlRootElement
 public class Form103XlsSheet {
 
     private Form103XlsCellHeaderDescription form103XlsCellHeaderDescription;

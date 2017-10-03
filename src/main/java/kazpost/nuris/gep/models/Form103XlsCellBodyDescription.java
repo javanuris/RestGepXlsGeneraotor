@@ -1,5 +1,8 @@
 package kazpost.nuris.gep.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Form103XlsCellBodyDescription {
     private int recipientId;
     private String addressee;

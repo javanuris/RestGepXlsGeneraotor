@@ -1,5 +1,8 @@
 package kazpost.nuris.gep.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Form103XlsCellHeaderDescription {
     private int direction;
     private int typeRegisteredMail;

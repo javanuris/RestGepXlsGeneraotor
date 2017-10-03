@@ -1,0 +1,363 @@
+declare
+    sURL VARCHAR2(32000);
+    req utl_http.req;
+    resp utl_http.resp;
+    value VARCHAR2(32000);
+    content varchar2(4000) := '{"name": "Aliya"}';
+begin
+
+   sURL := 'http://172.30.75.140:8282/book';
+
+
+   utl_http.set_transfer_timeout(2400);
+   sURL := utl_url.escape(sURL, false, 'UTF-8');
+   req := utl_http.begin_request(sURL, 'POST',' HTTP/1.1');
+   utl_http.set_header(req, 'user-agent', 'mozilla/4.0');
+   utl_http.set_header(req, 'content-type', 'application/json');
+   utl_http.set_header(req, 'Content-Length', length(content));
+
+   utl_http.write_text(req, content);
+
+   resp := utl_http.get_response(req);
+   utl_http.end_response(resp);
+
+end;
+
+
+declare
+    sURL VARCHAR2(32000);
+    content VARCHAR2(32000);
+    content1 VARCHAR2(32000);
+vs VARCHAR2(32000);
+
+    buffer varchar2(32000);
+    req utl_http.req;
+    resp utl_http.resp;
+
+
+begin
+vs:=CONVERT('ауц' , 'WE8ISO8859P1', 'AL32UTF8');
+
+content1 := '{"name": "book"}';
+   sURL := 'http://172.30.75.140:8282/generateForm103';
+   content := '{
+    "form103XlsCellHeaderDescription": {
+        "direction": 1,
+        "typeRegisteredMail": 2,
+        "categoryRegisteredMail": 1,
+        "sender":"'||vs||'",
+        "appointmentsRegion": 16,
+        "indexOPSPlace": 160000,
+        "allRegisteredMail": 165,
+        "phoneNumberFirstSender": "874751399203",
+        "phoneNumberSecondSender": "87016547899",
+        "senderEmail": "somebody@gmail.com"
+    },
+    "form103XlsCellBodyDescription": [
+        {
+            "recipientId": 1,
+            "addressee": "vs",
+            "indexOPSPlace": 160002,
+            "destinationAddress": "vs",
+            "barcode": "WW123321123321",
+            "weight": 0.02,
+            "amountDeclaredValue": 0,
+            "amountTaxPayment": 0,
+            "specialNotes": "non",
+            "phoneNumberFirst": "87475132264",
+            "phoneNumberSecond": "87412323684",
+            "email": "kalenov.n@gmail.com"
+        }
+    ],
+    "form103XlsInfo": {
+        "ftpUser": "gepadmin",
+        "ftpPassword": "6Wh6gzLX",
+        "ftpAddress": "172.30.75.125",
+        "fileName": "form103",
+        "filePath": "/test"
+    }
+}
+';
+
+   utl_http.set_transfer_timeout(2400);
+   --sURL := utl_url.escape(sURL, false, 'UTF-8');
+   req := utl_http.begin_request(sURL, 'POST',' HTTP/1.1');
+   utl_http.set_header(req, 'user-agent', 'mozilla/4.0');
+   utl_http.set_header(req, 'content-type', 'application/json');
+   utl_http.set_header(req, 'Content-Length', length(content));
+  -- utl_http.SET_BODY_CHARSET('UTF-8');
+
+
+
+   utl_http.write_text(req, content);
+
+   resp := utl_http.get_response(req);
+
+ begin
+    loop
+    utl_http.read_line(resp, buffer);
+    dbms_output.put_line(buffer);
+    end loop;
+
+    utl_http.end_response(resp);
+    exception
+    when utl_http.end_of_body then
+    utl_http.end_response(resp);
+    end;
+
+end;
+
+-*-*-*-*-*-*-***-****************************----------------------********
+
+
+
+declare
+    sURL VARCHAR2(32000);
+    content VARCHAR2(32000);
+vs VARCHAR2(32000);
+
+    buffer varchar2(32000);
+    req utl_http.req;
+    resp utl_http.resp;
+
+
+begin
+vs:='efe';
+
+   sURL := 'http://172.30.75.140:8282/generateForm103';
+   content := '{
+    "form103XlsCellHeaderDescription": {
+        "direction": 1,
+        "typeRegisteredMail": 2,
+        "categoryRegisteredMail": 1,
+        "sender":"'||vs||'",
+        "appointmentsRegion": 16,
+        "indexOPSPlace": 160000,
+        "allRegisteredMail": 165,
+        "phoneNumberFirstSender": "874751399203",
+        "phoneNumberSecondSender": "87016547899",
+        "senderEmail": "somebody@gmail.com"
+    },
+    "form103XlsCellBodyDescription": [
+        {
+            "recipientId": 1,
+            "addressee": "vs",
+            "indexOPSPlace": 160002,
+            "destinationAddress": "vs",
+            "barcode": "WW123321123321",
+            "weight": 0.02,
+            "amountDeclaredValue": 0,
+            "amountTaxPayment": 0,
+            "specialNotes": "non",
+            "phoneNumberFirst": "87475132264",
+            "phoneNumberSecond": "87412323684",
+            "email": "kalenov.n@gmail.com"
+        }
+    ],
+    "form103XlsInfo": {
+        "ftpUser": "gepadmin",
+        "ftpPassword": "6Wh6gzLX",
+        "ftpAddress": "172.30.75.125",
+        "fileName": "form103",
+        "filePath": "/test"
+    }
+}
+';
+
+   utl_http.set_transfer_timeout(2400);
+   sURL := utl_url.escape(sURL, false, 'UTF-8');
+   req := utl_http.begin_request(sURL, 'POST',' HTTP/1.1');
+   utl_http.set_header(req, 'user-agent', 'mozilla/4.0');
+   utl_http.set_header(req, 'content-type', 'application/json');
+   utl_http.set_header(req, 'Content-Length', length(content));
+   utl_http.SET_BODY_CHARSET('UTF-8');
+
+
+
+   utl_http.write_text(req, content);
+
+   resp := utl_http.get_response(req);
+
+ begin
+    loop
+    utl_http.read_line(resp, buffer);
+    dbms_output.put_line(buffer);
+    end loop;
+
+    utl_http.end_response(resp);
+    exception
+    when utl_http.end_of_body then
+    utl_http.end_response(resp);
+    end;
+
+end;
+
+-*-*-*-*-*-****************************----------------------********************-------------------****
+
+
+declare
+    sURL VARCHAR2(32000);
+    content VARCHAR2(4000);
+    vs VARCHAR2(32000);
+    book VARCHAR2(32000);
+    buffer varchar2(32000);
+    req utl_http.req;
+    resp utl_http.resp;
+    f1Send varchar2(1000);
+
+begin
+   vs:='fwef';
+
+   sURL := 'http://172.30.75.140:8282/string';
+   content := '{"form103XlsCellHeaderDescription":{"direction":1,"typeRegisteredMail":2,"categoryRegisteredMail":1,"sender":"ВЕРХОВНЫЙСУДРК","appointmentsRegion":16,"indexOPSPlace":160000,"allRegisteredMail":165,"phoneNumberFirstSender":"874751399203","phoneNumberSecondSender":"87016547899","senderEmail":"somebody@gmail.com"},"form103XlsCellBodyDescription":[{"recipientId":1,"addressee":"КАПБАРОВАХАТИРАЖАРЫЛКАСЫНОВНА","indexOPSPlace":160002,"destinationAddress":"МКР.САУЛЕНОВОСТРОЙКИ29,-,Абайскийрайон,ШымкентГ.А./Южно-Казахстанскаяобласть,160002","barcode":"WW123321123321","weight":0.02,"amountDeclaredValue":0,"amountTaxPayment":0,"specialNotes":"non","phoneNumberFirst":"87475132264","phoneNumberSecond":"87412323684","email":"kalenov.n@gmail.com"}],"form103XlsInfo":{"ftpUser":"gepadmin","ftpPassword":"6Wh6gzLX","ftpAddress":"172.30.75.125","fileName":"form103","filePath":"/test"}}';
+   utl_http.set_transfer_timeout(2400);
+   sURL := utl_url.escape(sURL, false, 'UTF-8');
+   req := utl_http.begin_request(sURL, 'POST',' HTTP/1.1');
+   utl_http.set_header(req, 'user-agent', 'mozilla/4.0');
+   utl_http.set_header(req, 'content-type', 'application/json');
+   utl_http.set_header(req, 'Content-Length', length(content));
+   utl_http.SET_BODY_CHARSET('UTF-8');
+
+   utl_http.write_text(req, content);
+
+   resp := utl_http.get_response(req);
+
+ begin
+    loop
+    utl_http.read_line(resp, buffer);
+    dbms_output.put_line(buffer);
+    end loop;
+
+    utl_http.end_response(resp);
+    UTL_HTTP.end_request(req);
+    exception
+    when utl_http.end_of_body then
+    utl_http.end_response(resp);
+       UTL_HTTP.end_request(req);
+
+ end;
+
+end;
+-----
+declare
+    sURL VARCHAR2(32000);
+    content VARCHAR2(32000);
+        content1 VARCHAR2(32000);
+
+    sender_id VARCHAR(3200);
+    buffer varchar2(32000);
+
+    req utl_http.req;
+    resp utl_http.resp;
+
+begin
+   sURL := 'http://172.30.75.140:8282/stringSave';
+   content := '{
+    "form103XlsCellHeaderDescription": {
+        "direction": 1,
+        "typeRegisteredMail": 2,
+        "categoryRegisteredMail": 1,
+        "sender": "ВЕРХОВНЫЙ СУД РК",
+        "appointmentsRegion": 16,
+        "indexOPSPlace": 160000,
+        "allRegisteredMail": 165,
+        "phoneNumberFirstSender": "874751399203",
+        "phoneNumberSecondSender": "87016547899",
+        "senderEmail": "somebody@gmail.com"
+    },
+    "form103XlsCellBodyDescription": [
+        {
+            "recipientId": 1,
+            "addressee": "КАПБАРОВА ХАТИРА ЖАРЫЛКАСЫНОВНА",
+            "indexOPSPlace": 160002,
+            "destinationAddress": "МКР.САУЛЕ НОВОСТРОЙКИ 29, -,Абайский район,Шымкент Г.А./Южно-Казахстанская область,160002",
+            "barcode": "WW123321123321",
+            "weight": 0.02,
+            "amountDeclaredValue": 0,
+            "amountTaxPayment": 0,
+            "specialNotes": "non",
+            "phoneNumberFirst": "87475132264",
+            "phoneNumberSecond": "87412323684",
+            "email": "kalenov.n@gmail.com"
+        },
+        {
+            "recipientId": 2,
+            "addressee": "КАПБАРОВА ХАТИРА ЖАРЫЛКАСЫНОВНА",
+            "indexOPSPlace": 160002,
+            "destinationAddress": "МКР.САУЛЕ НОВОСТРОЙКИ 29, -,Абайский район,Шымкент Г.А./Южно-Казахстанская область,160002",
+            "barcode": "WW123321123321",
+            "weight": 0.02,
+            "amountDeclaredValue": 0,
+            "amountTaxPayment": 0,
+            "specialNotes": "non",
+            "phoneNumberFirst": "87475132264",
+            "phoneNumberSecond": "87412323684",
+            "email": "kalenov.n@gmail.com"
+        },
+        {
+            "recipientId": 3,
+            "addressee": "КАПБАРОВА ХАТИРА ЖАРЫЛКАСЫНОВНА",
+            "indexOPSPlace": 160002,
+            "destinationAddress": "МКР.САУЛЕ НОВОСТРОЙКИ 29, -,Абайский район,Шымкент Г.А./Южно-Казахстанская область,160002",
+            "barcode": "WW123321123321",
+            "weight": 0.02,
+            "amountDeclaredValue": 0,
+            "amountTaxPayment": 0,
+            "specialNotes": "non",
+            "phoneNumberFirst": "87475132264",
+            "phoneNumberSecond": "87412323684",
+            "email": "kalenov.n@gmail.com"
+        },
+        {
+            "recipientId": 4,
+            "addressee": "КАПБАРОВА ХАТИРА ЖАРЫЛКАСЫНОВНА",
+            "indexOPSPlace": 160002,
+            "destinationAddress": "МКР.САУЛЕ НОВОСТРОЙКИ 29, -,Абайский район,Шымкент Г.А./Южно-Казахстанская область,160002",
+            "barcode": "WW123321123321",
+            "weight": 0.02,
+            "amountDeclaredValue": 0,
+            "amountTaxPayment": 0,
+            "specialNotes": "non",
+            "phoneNumberFirst": "87475132264",
+            "phoneNumberSecond": "87412323684",
+            "email": "kalenov.n@gmail.com"
+        }
+    ],
+    "form103XlsInfo": {
+        "ftpUser": "gepadmin",
+        "ftpPassword": "6Wh6gzLX",
+        "ftpAddress": "172.30.75.125",
+        "fileName": "form103",
+        "filePath": "/test"
+    }
+}';
+   content1 := content;
+   content:= convert(content , 'AL32UTF8' , 'WE8MSWIN1252');
+   utl_http.set_transfer_timeout(2400);
+   sURL := utl_url.escape(sURL, false, 'UTF-8');
+   req := utl_http.begin_request(sURL, 'POST',' HTTP/1.1');
+   utl_http.set_header(req, 'user-agent', 'mozilla/4.0');
+   utl_http.set_header(req, 'content-type', 'text/plain');
+
+       dbms_output.put_line('LEEEENGTH: ' || length(content));
+
+   utl_http.set_header(req, 'Content-Length',length(content));
+   utl_http.SET_BODY_CHARSET('UTF-8');
+
+   utl_http.write_text(req, content1);
+
+   resp := utl_http.get_response(req);
+
+ begin
+    loop
+    utl_http.read_line(resp, buffer);
+    dbms_output.put_line(buffer);
+    end loop;
+
+    utl_http.end_response(resp);
+    exception
+    when utl_http.end_of_body then
+    utl_http.end_response(resp);
+    end;
+
+end;

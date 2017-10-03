@@ -5,13 +5,15 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
 @Order(1)
 public class EncoderFilter implements Filter{
 
-private String code = "UTF-16";
+private String code = "UTF-8";
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println("Init!");
@@ -19,18 +21,19 @@ private String code = "UTF-16";
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println(servletRequest.getCharacterEncoding() + " : Before Character Encodings");
-        System.out.println(servletRequest.getContentLength() + " : Content Length");
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
 
-        String codeReq = servletRequest.getCharacterEncoding();
+        System.out.println(httpServletRequest.getCharacterEncoding() + " : Character Encodings");
+        System.out.println(httpServletRequest.getContentLength() + " : Content Length");
+
+        String codeReq = httpServletRequest.getCharacterEncoding();
         if (code != null && !code.equalsIgnoreCase(codeReq)) {
-            servletRequest.setCharacterEncoding(code);
-            servletResponse.setCharacterEncoding(code);
+            httpServletRequest.setCharacterEncoding(code);
+            httpServletResponse.setCharacterEncoding(code);
         }
-        filterChain.doFilter(servletRequest, servletResponse);
-        System.out.println(servletRequest.getAttributeNames().hasMoreElements());
-        System.out.println(servletRequest.getCharacterEncoding() + " : After Character Encodings");
-    }
+        filterChain.doFilter(httpServletRequest, httpServletResponse);
+      }
 
     @Override
     public void destroy() {
