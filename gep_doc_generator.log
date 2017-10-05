@@ -1,0 +1,5 @@
+2017-10-05 09:41:42 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 4820 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-05 09:41:42 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-05 09:41:44 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 1.486 seconds (JVM running for 1.862)
+2017-10-05 09:41:59 [http-nio-8282-exec-1] INFO  k.n.gep.services.Form103XlsService - Файл /test/form103.xls загружен.
+2017-10-05 09:42:20 [http-nio-8282-exec-4] INFO  k.n.g.controllers.RestApiController - GET/hello

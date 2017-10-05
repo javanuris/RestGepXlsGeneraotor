@@ -1,2 +1,12 @@
+
 server:
   port: 8282
+
+logging:
+  file: gep_doc_generator.log
+  level:
+    ROOT: ERROR
+    kazpost.nuris.gep: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

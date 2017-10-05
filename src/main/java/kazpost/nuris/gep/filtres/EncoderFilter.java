@@ -16,16 +16,12 @@ public class EncoderFilter implements Filter{
 private String code = "UTF-8";
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("Init!");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
-
-        System.out.println(httpServletRequest.getCharacterEncoding() + " : Character Encodings");
-        System.out.println(httpServletRequest.getContentLength() + " : Content Length");
 
         String codeReq = httpServletRequest.getCharacterEncoding();
         if (code != null && !code.equalsIgnoreCase(codeReq)) {
@@ -37,6 +33,6 @@ private String code = "UTF-8";
 
     @Override
     public void destroy() {
-        System.out.println("Destroy!");
+
     }
 }

@@ -12,10 +12,13 @@ import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+
 /**
  * Класс служит для генераций XLS файлов и сохранений их на FTP сервере.
  *
@@ -25,6 +28,8 @@ import java.io.*;
 
 @Service
 public class Form103XlsService {
+
+    Logger log = LoggerFactory.getLogger(Form103XlsService.class);
     /**
      * Формат в котором необходимо сохранять Excel файлы.
      */
@@ -83,15 +88,13 @@ public class Form103XlsService {
 
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Файл не найден в системе.(При генераций файла, файл временно создается локально, далее отправляеться в FTP и удаляеться с локали)", e);
         }
         try {
             out.close();
             workbook.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Ошибка при закрытий Stream", e);
         }
 
         uploadFile(form103XlsSheet.getForm103XlsInfo());
@@ -196,13 +199,13 @@ public class Form103XlsService {
 
             boolean done = ftpClient.storeFile(pathAndNameUploadFile, uploadFile);
             if (done) {
-                System.out.println("Файл " + pathAndNameUploadFile + " загружен");
+                log.info("Файл " + pathAndNameUploadFile + " загружен.");
             } else {
-                System.out.println("Файл " + pathAndNameUploadFile + " не загружен");
+                log.error("Файл " + pathAndNameUploadFile + " не загружен.");
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Ошибка FTP, загрузка/выгрузка. ", e);
         } finally {
             try {
                 uploadFile.close();
@@ -212,7 +215,7 @@ public class Form103XlsService {
                     ftpClient.disconnect();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("Ошибка при закрытий соедениний с FTP либо при закрытий InputStream. ", e);
             }
         }
     }
