@@ -101,7 +101,7 @@ public class Form103XlsService {
 
     }
 
-    private void createXlsBodyPart(HSSFWorkbook workbook, HSSFSheet sheet) {
+    public void createXlsBodyPart(HSSFWorkbook workbook, HSSFSheet sheet) {
 
         Row rowBodyTableDescription = sheet.createRow(7);
         rowBodyTableDescription.createCell(0).setCellValue("№ п.п.");
@@ -123,7 +123,6 @@ public class Form103XlsService {
         font.setBold(true);
         font.setFontHeightInPoints((short) 11);
         style.setFont(font);
-        style.setVerticalAlignment(CellStyle.ALIGN_CENTER);
         style.setBorderBottom(BorderStyle.MEDIUM);
         style.setBorderLeft(BorderStyle.MEDIUM);
         style.setBorderRight(BorderStyle.MEDIUM);
@@ -136,7 +135,7 @@ public class Form103XlsService {
 
     }
 
-    private void createXlsHeaderPart(Form103XlsSheet form103XlsSheet, HSSFSheet sheet) {
+    public void createXlsHeaderPart(Form103XlsSheet form103XlsSheet, HSSFSheet sheet) {
 
         Row rowDirection = sheet.createRow(0);
         rowDirection.createCell(0).setCellValue("Направление");
