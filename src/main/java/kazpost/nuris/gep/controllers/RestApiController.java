@@ -25,18 +25,25 @@ public class RestApiController {
     }
 
     @RequestMapping(value = "/generateForm103", method = RequestMethod.POST, produces = {"application/json", "application/xml"})
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity generateForm103(@RequestBody Form103XlsSheet form103XlsSheet) {
+       // log.info(form103XlsSheet.toString());
         try {
-
             //Метод не кидает исключний, это временная заглушка.
             form103XlsService.generateForm103XlsFile(form103XlsSheet);
             return new ResponseEntity("OK", HttpStatus.OK);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error Gen", e);
             return new ResponseEntity("ERROR", HttpStatus.BAD_REQUEST);
         }
     }
+
+    @RequestMapping(value = "/jsonString", method = RequestMethod.POST, produces = {"application/json", "application/xml"})
+    @ResponseStatus(HttpStatus.OK)
+    public void getJsonString(@RequestBody String json){
+        log.info("!!#$@@{String -*-*->"+json+" <-*-*-String}@@$#!!");
+    }
+
 
 }

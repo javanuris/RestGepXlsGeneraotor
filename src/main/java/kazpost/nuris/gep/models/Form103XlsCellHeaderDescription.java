@@ -4,12 +4,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Form103XlsCellHeaderDescription {
-    private int direction;
-    private int typeRegisteredMail;
-    private int categoryRegisteredMail;
+    private String direction;
+    private String typeRegisteredMail;
+    private String categoryRegisteredMail;
     private String sender;
-    private int appointmentsRegion;
-    private int indexOPSPlace;
+    private String appointmentsRegion;
+    private String indexOPSPlace;
     private int allRegisteredMail;
     private String phoneNumberFirstSender;
     private String phoneNumberSecondSender;
@@ -19,9 +19,9 @@ public class Form103XlsCellHeaderDescription {
 
     }
 
-    public Form103XlsCellHeaderDescription(int direction, int sortRegisteredMail, int categoryRegisteredMail, String sender, int appointmentsRegion, int indexOPSPlace, int allRegisteredMail, String phoneNumberFirstSender, String phoneNumberSecondSender, String senderEmail) {
+    public Form103XlsCellHeaderDescription(String direction, String typeRegisteredMail, String categoryRegisteredMail, String sender, String appointmentsRegion, String indexOPSPlace, int allRegisteredMail, String phoneNumberFirstSender, String phoneNumberSecondSender, String senderEmail) {
         this.direction = direction;
-        this.typeRegisteredMail = sortRegisteredMail;
+        this.typeRegisteredMail = typeRegisteredMail;
         this.categoryRegisteredMail = categoryRegisteredMail;
         this.sender = sender;
         this.appointmentsRegion = appointmentsRegion;
@@ -32,27 +32,27 @@ public class Form103XlsCellHeaderDescription {
         this.senderEmail = senderEmail;
     }
 
-    public int getDirection() {
+    public String getDirection() {
         return direction;
     }
 
-    public void setDirection(int direction) {
+    public void setDirection(String direction) {
         this.direction = direction;
     }
 
-    public int getTypeRegisteredMail() {
+    public String getTypeRegisteredMail() {
         return typeRegisteredMail;
     }
 
-    public void setTypeRegisteredMail(int typeRegisteredMail) {
+    public void setTypeRegisteredMail(String typeRegisteredMail) {
         this.typeRegisteredMail = typeRegisteredMail;
     }
 
-    public int getCategoryRegisteredMail() {
+    public String getCategoryRegisteredMail() {
         return categoryRegisteredMail;
     }
 
-    public void setCategoryRegisteredMail(int categoryRegisteredMail) {
+    public void setCategoryRegisteredMail(String categoryRegisteredMail) {
         this.categoryRegisteredMail = categoryRegisteredMail;
     }
 
@@ -64,19 +64,19 @@ public class Form103XlsCellHeaderDescription {
         this.sender = sender;
     }
 
-    public int getAppointmentsRegion() {
+    public String getAppointmentsRegion() {
         return appointmentsRegion;
     }
 
-    public void setAppointmentsRegion(int appointmentsRegion) {
+    public void setAppointmentsRegion(String appointmentsRegion) {
         this.appointmentsRegion = appointmentsRegion;
     }
 
-    public int getIndexOPSPlace() {
+    public String getIndexOPSPlace() {
         return indexOPSPlace;
     }
 
-    public void setIndexOPSPlace(int indexOPSPlace) {
+    public void setIndexOPSPlace(String indexOPSPlace) {
         this.indexOPSPlace = indexOPSPlace;
     }
 

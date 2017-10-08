@@ -3,3 +3,235 @@
 2017-10-05 09:41:44 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 1.486 seconds (JVM running for 1.862)
 2017-10-05 09:41:59 [http-nio-8282-exec-1] INFO  k.n.gep.services.Form103XlsService - Файл /test/form103.xls загружен.
 2017-10-05 09:42:20 [http-nio-8282-exec-4] INFO  k.n.g.controllers.RestApiController - GET/hello
+2017-10-05 12:20:12 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 3880 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-05 12:20:12 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-05 12:20:16 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 5.527 seconds (JVM running for 7.54)
+2017-10-05 12:20:24 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 5436 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-05 12:20:24 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-05 12:20:26 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 1.631 seconds (JVM running for 2.032)
+2017-10-05 12:21:08 [http-nio-8282-exec-1] INFO  k.n.g.controllers.RestApiController - {
+    "form103XlsCellHeaderDescription": {
+        "direction": 1,
+        "typeRegisteredMail": 2,
+        "categoryRegisteredMail": 1,
+        "sender": "ВС РК",
+        "appointmentsRegion": 11,
+        "indexOPSPlace": 110700,
+        "allRegisteredMail": 0
+    },"form103XlsCellBodyDescription": [{
+            "recipientId": 1,
+            "addressee": "БЛИЗБАЕВ САМАТ ЖУМАРТОВИЧ",
+            "indexOPSPlace": 110700,
+            "destinationAddress": "4 микр 9, 8,г.Житикара,Житикаринский район Костанайская область,110700",
+            "barcode": "",
+            "weight": 0.020
+        },{
+            "recipientId": 2,
+            "addressee": "МАКАНОВА АСИЯ САГЫНБАЕВНА",
+            "indexOPSPlace": 110711,
+            "destinationAddress": "Степная 4, -,с.Приречное,Житикаринский район Костанайская область,110711",
+            "barcode": "",
+            "weight": 0.020
+        },{
+            "recipientId": 3,
+            "addressee": "КАЛИНЫЧ АНДРЕЙ АНАТОЛЬЕВИЧ",
+            "indexOPSPlace": 110711,
+            "destinationAddress": "ДНЕПРОПЕТРОВСКАЯ 8, -,с.Приречное,Житикаринский район Костанайская область,110711",
+            "barcode": "",
+            "weight": 0.020
+        },{
+            "recipientId": 4,
+            "addressee": "ЯЦКЕВИЧ СЕРГЕЙ ГЕННАДЬЕВИЧ",
+            "indexOPSPlace": 110716,
+            "destinationAddress": "40 лет победы 15, 1,а.Чайковское,Житикаринский район Костанайская область,110716",
+            "barcode": "",
+            "weight": 0.020
+        },{
+            "recipientId": 5,
+            "addressee": "ЧИЖОВА НИНА ВЛАДИМИРОВНА",
+            "indexOPSPlace": 110716,
+            "destinationAddress": "Мира 47, -,а.Чайковское,Житикаринский район Костанайская область,110716",
+            "barcode": "",
+            "weight": 0.020
+        }
+    ],
+    "form103XlsInfo": {
+        "ftpUser": "gepadmin",
+        "ftpPassword": "6Wh6gzLX",
+        "ftpAddress": "172.30.75.125",
+        "fileName": "form103",
+        "filePath": "/test"
+    }
+}
+2017-10-05 12:23:35 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 1140 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-05 12:23:35 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-05 12:23:36 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 1.508 seconds (JVM running for 1.887)
+2017-10-05 12:24:10 [http-nio-8282-exec-1] INFO  k.n.g.controllers.RestApiController - {String -*-*->{
+    "form103XlsCellHeaderDescription": {
+        "direction": 1,
+        "typeRegisteredMail": 2,
+        "categoryRegisteredMail": 1,
+        "sender": "ВС РК",
+        "appointmentsRegion": 11,
+        "indexOPSPlace": 110700,
+        "allRegisteredMail": 0
+    },"form103XlsCellBodyDescription": [{
+            "recipientId": 1,
+            "addressee": "БЛИЗБАЕВ САМАТ ЖУМАРТОВИЧ",
+            "indexOPSPlace": 110700,
+            "destinationAddress": "4 микр 9, 8,г.Житикара,Житикаринский район Костанайская область,110700",
+            "barcode": "",
+            "weight": 0.020
+        },{
+            "recipientId": 2,
+            "addressee": "МАКАНОВА АСИЯ САГЫНБАЕВНА",
+            "indexOPSPlace": 110711,
+            "destinationAddress": "Степная 4, -,с.Приречное,Житикаринский район Костанайская область,110711",
+            "barcode": "",
+            "weight": 0.020
+        },{
+            "recipientId": 3,
+            "addressee": "КАЛИНЫЧ АНДРЕЙ АНАТОЛЬЕВИЧ",
+            "indexOPSPlace": 110711,
+            "destinationAddress": "ДНЕПРОПЕТРОВСКАЯ 8, -,с.Приречное,Житикаринский район Костанайская область,110711",
+            "barcode": "",
+            "weight": 0.020
+        },{
+            "recipientId": 4,
+            "addressee": "ЯЦКЕВИЧ СЕРГЕЙ ГЕННАДЬЕВИЧ",
+            "indexOPSPlace": 110716,
+            "destinationAddress": "40 лет победы 15, 1,а.Чайковское,Житикаринский район Костанайская область,110716",
+            "barcode": "",
+            "weight": 0.020
+        },{
+            "recipientId": 5,
+            "addressee": "ЧИЖОВА НИНА ВЛАДИМИРОВНА",
+            "indexOPSPlace": 110716,
+            "destinationAddress": "Мира 47, -,а.Чайковское,Житикаринский район Костанайская область,110716",
+            "barcode": "",
+            "weight": 0.020
+        }
+    ],
+    "form103XlsInfo": {
+        "ftpUser": "gepadmin",
+        "ftpPassword": "6Wh6gzLX",
+        "ftpAddress": "172.30.75.125",
+        "fileName": "form103",
+        "filePath": "/test"
+    }
+} <-*-*-String}
+2017-10-05 14:38:42 [http-nio-8282-exec-3] INFO  k.n.g.controllers.RestApiController - GET/hello
+2017-10-05 14:39:03 [http-nio-8282-exec-5] INFO  k.n.g.controllers.RestApiController - Form103XlsSheet{form103XlsCellHeaderDescription=Form103XlsCellHeaderDescription{direction=1, typeRegisteredMail=2, categoryRegisteredMail=1, sender='ВС РК', appointmentsRegion=11, indexOPSPlace=110700, allRegisteredMail=0, phoneNumberFirstSender='null', phoneNumberSecondSender='null', senderEmail='null'}, form103XlsCellBodyDescription=[Form103XlsCellBodyDescription{recipientId=1, addressee='БЛИЗБАЕВ САМАТ ЖУМАРТОВИЧ', indexOPSPlace=110700, destinationAddress='4 микр 9, 8,г.Житикара,Житикаринский район Костанайская область,110700', barcode='', weight=0.02, amountDeclaredValue=0, amountTaxPayment=0, specialNotes='null', phoneNumberFirst='null', phoneNumberSecond='null', email='null'}, Form103XlsCellBodyDescription{recipientId=2, addressee='МАКАНОВА АСИЯ САГЫНБАЕВНА', indexOPSPlace=110711, destinationAddress='Степная 4, -,с.Приречное,Житикаринский район Костанайская область,110711', barcode='WW040060268KZ', weight=0.02, amountDeclaredValue=0, amountTaxPayment=0, specialNotes='null', phoneNumberFirst='null', phoneNumberSecond='null', email='null'}, Form103XlsCellBodyDescription{recipientId=3, addressee='КАЛИНЫЧ АНДРЕЙ АНАТОЛЬЕВИЧ', indexOPSPlace=110711, destinationAddress='ДНЕПРОПЕТРОВСКАЯ 8, -,с.Приречное,Житикаринский район Костанайская область,110711', barcode='', weight=0.02, amountDeclaredValue=0, amountTaxPayment=0, specialNotes='null', phoneNumberFirst='null', phoneNumberSecond='null', email='null'}, Form103XlsCellBodyDescription{recipientId=4, addressee='ЯЦКЕВИЧ СЕРГЕЙ ГЕННАДЬЕВИЧ', indexOPSPlace=110716, destinationAddress='40 лет победы 15, 1,а.Чайковское,Житикаринский район Костанайская область,110716', barcode='WW040060268KZ', weight=0.02, amountDeclaredValue=0, amountTaxPayment=0, specialNotes='null', phoneNumberFirst='null', phoneNumberSecond='null', email='null'}, Form103XlsCellBodyDescription{recipientId=5, addressee='ЧИЖОВА НИНА ВЛАДИМИРОВНА', indexOPSPlace=110716, destinationAddress='Мира 47, -,а.Чайковское,Житикаринский район Костанайская область,110716', barcode='', weight=0.02, amountDeclaredValue=0, amountTaxPayment=0, specialNotes='null', phoneNumberFirst='null', phoneNumberSecond='null', email='null'}], form103XlsInfo=Form103XlsInfo{ftpUser='gepadmin', ftpPassword='6Wh6gzLX', ftpAddress='172.30.75.125', fileName='NurisBarcode', filePath='/test'}}
+2017-10-05 14:39:06 [http-nio-8282-exec-5] INFO  k.n.gep.services.Form103XlsService - Файл /test/NurisBarcode.xls загружен.
+2017-10-05 14:40:22 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 4820 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-05 14:40:22 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-05 14:40:23 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 1.939 seconds (JVM running for 2.908)
+2017-10-05 14:40:43 [http-nio-8282-exec-2] INFO  k.n.gep.services.Form103XlsService - Файл /test/NurisBarcode.xls загружен.
+2017-10-05 14:49:43 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 3176 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-05 14:49:43 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-05 14:49:45 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 1.56 seconds (JVM running for 1.972)
+2017-10-05 14:50:51 [http-nio-8282-exec-1] INFO  k.n.gep.services.Form103XlsService - Файл /test/NurisBarcode.xls загружен.
+2017-10-05 14:52:09 [http-nio-8282-exec-4] INFO  k.n.gep.services.Form103XlsService - Файл test/nuris_110700_2017-10-04-122008.xls загружен.
+2017-10-05 14:55:23 [http-nio-8282-exec-7] INFO  k.n.gep.services.Form103XlsService - Файл test/nuris_110700_2017-10-04-122008.xls загружен.
+2017-10-05 15:01:30 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 5668 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-05 15:01:30 [main] DEBUG k.n.gep.GepDocGeneratorApplication - Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2017-10-05 15:01:30 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-05 15:01:31 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 1.45 seconds (JVM running for 1.896)
+2017-10-05 15:02:00 [http-nio-8282-exec-1] INFO  k.n.gep.services.Form103XlsService - Файл test/nuris_110700_2017-10-04-122008.xls загружен.
+2017-10-05 15:02:19 [http-nio-8282-exec-3] INFO  k.n.gep.services.Form103XlsService - Файл test/nuris_110700_2017-10-04-122008.xls загружен.
+2017-10-05 15:02:59 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 4768 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-05 15:02:59 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-05 15:02:59 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4313f5bc: startup date [Thu Oct 05 15:02:59 MSK 2017]; root of context hierarchy
+2017-10-05 15:03:00 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8282 (http)
+2017-10-05 15:03:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2017-10-05 15:03:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.20
+2017-10-05 15:03:00 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2017-10-05 15:03:00 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 905 ms
+2017-10-05 15:03:00 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-10-05 15:03:00 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-10-05 15:03:00 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-10-05 15:03:00 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-10-05 15:03:00 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-10-05 15:03:00 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'encoderFilter' to: [/*]
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4313f5bc: startup date [Thu Oct 05 15:02:59 MSK 2017]; root of context hierarchy
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generateForm103],methods=[POST],produces=[application/json || application/xml]}" onto public org.springframework.http.ResponseEntity kazpost.nuris.gep.controllers.RestApiController.generateForm103(kazpost.nuris.gep.models.Form103XlsSheet)
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hello],methods=[GET]}" onto public java.lang.String kazpost.nuris.gep.controllers.RestApiController.getTestGet()
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/jsonString],methods=[POST],produces=[application/json || application/xml]}" onto public void kazpost.nuris.gep.controllers.RestApiController.getJsonString(java.lang.String)
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-05 15:03:00 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-05 15:03:00 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-10-05 15:03:00 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8282 (http)
+2017-10-05 15:03:00 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 1.6 seconds (JVM running for 2.021)
+2017-10-05 15:03:08 [http-nio-8282-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-10-05 15:03:08 [http-nio-8282-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2017-10-05 15:03:08 [http-nio-8282-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 10 ms
+2017-10-05 15:03:08 [http-nio-8282-exec-1] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: java.io.PushbackInputStream@43b1dd6e; line: 1, column: 1]); nested exception is com.fasterxml.jackson.core.io.JsonEOFException: Unexpected end-of-input: expected close marker for Object (start marker at [Source: java.io.PushbackInputStream@43b1dd6e; line: 1, column: 1])
+ at [Source: java.io.PushbackInputStream@43b1dd6e; line: 52, column: 2495]
+2017-10-05 15:04:23 [http-nio-8282-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected end-of-input: expected close marker for Object (start marker at [Source: java.io.PushbackInputStream@5876922; line: 1, column: 1]); nested exception is com.fasterxml.jackson.core.io.JsonEOFException: Unexpected end-of-input: expected close marker for Object (start marker at [Source: java.io.PushbackInputStream@5876922; line: 1, column: 1])
+ at [Source: java.io.PushbackInputStream@5876922; line: 52, column: 2495]
+2017-10-05 15:04:30 [http-nio-8282-exec-3] INFO  k.n.gep.services.Form103XlsService - Файл test/nuris_110700_2017-10-04-122008.xls загружен.
+2017-10-06 08:54:26 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 3668 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-06 08:54:26 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-06 08:54:26 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@161479c6: startup date [Fri Oct 06 08:54:26 MSK 2017]; root of context hierarchy
+2017-10-06 08:54:28 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8282 (http)
+2017-10-06 08:54:28 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2017-10-06 08:54:28 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.20
+2017-10-06 08:54:28 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2017-10-06 08:54:28 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1996 ms
+2017-10-06 08:54:28 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-10-06 08:54:28 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-10-06 08:54:28 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-10-06 08:54:28 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-10-06 08:54:28 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-10-06 08:54:28 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'encoderFilter' to: [/*]
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@161479c6: startup date [Fri Oct 06 08:54:26 MSK 2017]; root of context hierarchy
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hello],methods=[GET]}" onto public java.lang.String kazpost.nuris.gep.controllers.RestApiController.getTestGet()
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generateForm103],methods=[POST],produces=[application/json || application/xml]}" onto public org.springframework.http.ResponseEntity kazpost.nuris.gep.controllers.RestApiController.generateForm103(kazpost.nuris.gep.models.Form103XlsSheet)
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/jsonString],methods=[POST],produces=[application/json || application/xml]}" onto public void kazpost.nuris.gep.controllers.RestApiController.getJsonString(java.lang.String)
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-06 08:54:29 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-06 08:54:29 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-10-06 08:54:29 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8282 (http)
+2017-10-06 08:54:29 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 3.869 seconds (JVM running for 7.067)
+2017-10-06 08:56:24 [http-nio-8282-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-10-06 08:56:24 [http-nio-8282-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2017-10-06 08:56:24 [http-nio-8282-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2017-10-06 08:56:25 [http-nio-8282-exec-1] INFO  k.n.gep.services.Form103XlsService - Файл test/postkzma_test_over7page_090000_2017-10-05-182416.xls загружен.
+2017-10-06 08:56:43 [http-nio-8282-exec-3] INFO  k.n.gep.services.Form103XlsService - Файл test/nurislamText.xls загружен.
+2017-10-06 08:56:56 [http-nio-8282-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Invalid numeric value: Leading zeroes not allowed
+ at [Source: java.io.PushbackInputStream@68283a14; line: 7, column: 32]; nested exception is com.fasterxml.jackson.databind.JsonMappingException: Invalid numeric value: Leading zeroes not allowed
+ at [Source: java.io.PushbackInputStream@68283a14; line: 7, column: 32]
+ at [Source: java.io.PushbackInputStream@68283a14; line: 7, column: 9] (through reference chain: kazpost.nuris.gep.models.Form103XlsSheet["form103XlsCellHeaderDescription"])
+2017-10-06 08:57:54 [http-nio-8282-exec-6] INFO  k.n.gep.services.Form103XlsService - Файл test/nurislamText.xls загружен.
+2017-10-08 09:24:31 [main] INFO  k.n.gep.GepDocGeneratorApplication - Starting GepDocGeneratorApplication on ASTWS42123 with PID 5612 (C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator\target\classes started by n.kalenov in C:\Users\n.kalenov\Desktop\Project\gep_admin\GepDocGenerator)
+2017-10-08 09:24:31 [main] INFO  k.n.gep.GepDocGeneratorApplication - No active profile set, falling back to default profiles: default
+2017-10-08 09:24:31 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e0dec4a: startup date [Sun Oct 08 09:24:31 MSK 2017]; root of context hierarchy
+2017-10-08 09:24:33 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8282 (http)
+2017-10-08 09:24:33 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2017-10-08 09:24:33 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.20
+2017-10-08 09:24:34 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2017-10-08 09:24:34 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2562 ms
+2017-10-08 09:24:34 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-10-08 09:24:34 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-10-08 09:24:34 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-10-08 09:24:34 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-10-08 09:24:34 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-10-08 09:24:34 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'encoderFilter' to: [/*]
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e0dec4a: startup date [Sun Oct 08 09:24:31 MSK 2017]; root of context hierarchy
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/jsonString],methods=[POST],produces=[application/json || application/xml]}" onto public void kazpost.nuris.gep.controllers.RestApiController.getJsonString(java.lang.String)
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generateForm103],methods=[POST],produces=[application/json || application/xml]}" onto public org.springframework.http.ResponseEntity kazpost.nuris.gep.controllers.RestApiController.generateForm103(kazpost.nuris.gep.models.Form103XlsSheet)
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hello],methods=[GET]}" onto public java.lang.String kazpost.nuris.gep.controllers.RestApiController.getTestGet()
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-08 09:24:34 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-10-08 09:24:34 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-10-08 09:24:35 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8282 (http)
+2017-10-08 09:24:35 [main] INFO  k.n.gep.GepDocGeneratorApplication - Started GepDocGeneratorApplication in 5.253 seconds (JVM running for 8.417)

@@ -6,10 +6,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Form103XlsCellBodyDescription {
     private int recipientId;
     private String addressee;
-    private int indexOPSPlace;
+    private String indexOPSPlace;
     private String destinationAddress;
     private String barcode;
-    private double weight;
+    private String weight;
     private int amountDeclaredValue;
     private int amountTaxPayment;
     private String specialNotes;
@@ -21,7 +21,7 @@ public class Form103XlsCellBodyDescription {
 
     }
 
-    public Form103XlsCellBodyDescription(int recipientId, String addressee, int indexOPSPlace, String destinationAddress, String barcode, double weight, int amountDeclaredValue, int amountTaxPayment, String specialNotes, String phoneNumberFirst, String phoneNumberSecond, String email) {
+    public Form103XlsCellBodyDescription(int recipientId, String addressee, String indexOPSPlace, String destinationAddress, String barcode, String weight, int amountDeclaredValue, int amountTaxPayment, String specialNotes, String phoneNumberFirst, String phoneNumberSecond, String email) {
         this.recipientId = recipientId;
         this.addressee = addressee;
         this.indexOPSPlace = indexOPSPlace;
@@ -52,11 +52,11 @@ public class Form103XlsCellBodyDescription {
         this.addressee = addressee;
     }
 
-    public int getIndexOPSPlace() {
+    public String getIndexOPSPlace() {
         return indexOPSPlace;
     }
 
-    public void setIndexOPSPlace(int indexOPSPlace) {
+    public void setIndexOPSPlace(String indexOPSPlace) {
         this.indexOPSPlace = indexOPSPlace;
     }
 
@@ -76,11 +76,11 @@ public class Form103XlsCellBodyDescription {
         this.barcode = barcode;
     }
 
-    public double getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
