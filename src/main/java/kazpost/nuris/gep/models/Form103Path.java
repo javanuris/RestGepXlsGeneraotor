@@ -1,7 +1,7 @@
 package kazpost.nuris.gep.models;
 
 public class Form103Path {
-    private String formPath;
+    private String fromPath;
     private String toPath;
     private String fileNameBefore;
     private String fileNameAfter;
@@ -10,12 +10,12 @@ public class Form103Path {
 
    }
 
-    public String getFormPath() {
-        return formPath;
+    public String getFromPath() {
+        return fromPath;
     }
 
-    public void setFormPath(String formPath) {
-        this.formPath = formPath;
+    public void setFromPath(String fromPath) {
+        this.fromPath = fromPath;
     }
 
     public String getToPath() {

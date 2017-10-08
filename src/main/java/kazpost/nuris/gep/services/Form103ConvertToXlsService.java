@@ -9,6 +9,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -18,7 +21,12 @@ import java.util.List;
 /**
  * Created by User on 07.10.2017.
  */
+@Service
 public class Form103ConvertToXlsService {
+
+    Logger log = LoggerFactory.getLogger(Form103ConvertToXlsService.class);
+
+
     private static final String XLS_FILE_FORMAT = ".xls";
     private static final String SHEET_NAME = "Form103";
     private static final int FTP_PORT = 21;
@@ -32,41 +40,27 @@ public class Form103ConvertToXlsService {
      */
     private static final int TOTAL_COLUMN_COUNT = 12;
 
-    public static void main(String[] args) throws IOException {
-        Form103ConvertToXlsService convert = new Form103ConvertToXlsService();
-        Form103Path path = new Form103Path();
-
-        path.setToPath("test");
-        path.setFileNameAfter("testAfter");
-
-        path.setFormPath("/160000/160000/COMMON");
-        path.setFileNameBefore("test");
-
-        convert.convertForm103Xls(path);
-
-    }
-
-
     public void convertForm103Xls(Form103Path path) {
+
         downloadFile(path);
 
         Form103XlsService form103XlsService = new Form103XlsService();
         Form103XlsCellHeaderDescription header = new Form103XlsCellHeaderDescription();
-        List<Form103XlsCellBodyDescription> bodyList = new ArrayList<Form103XlsCellBodyDescription>();
+        List<Form103XlsCellBodyDescription> bodyList = new ArrayList<>();
         Form103XlsSheet form103XlsSheet = new Form103XlsSheet();
 
         InputStream excelFileToRead = null;
         try {
             excelFileToRead = new FileInputStream(path.getFileNameBefore() + XLS_FILE_FORMAT);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            log.error("Файл не загружен", e);
         }
 
         XSSFWorkbook wb = null;
         try {
             wb = new XSSFWorkbook(excelFileToRead);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Ошибка", e);
         }
 
         XSSFSheet sheet = wb.getSheetAt(0);
@@ -129,8 +123,6 @@ public class Form103ConvertToXlsService {
         form103XlsSheet.setForm103XlsCellHeaderDescription(header);
         form103XlsSheet.setForm103XlsCellBodyDescription(bodyList);
 
-        System.out.println(form103XlsSheet);
-
         Form103ConvertToXlsService converterService = new Form103ConvertToXlsService();
         try {
             converterService.generateForm103XlsFile(form103XlsSheet, path, form103XlsService);
@@ -142,7 +134,7 @@ public class Form103ConvertToXlsService {
     }
 
 
-    public void generateForm103XlsFile(Form103XlsSheet form103XlsSheet, Form103Path path, Form103XlsService form103XlsService) throws Exception {
+    private void generateForm103XlsFile(Form103XlsSheet form103XlsSheet, Form103Path path, Form103XlsService form103XlsService) throws Exception {
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet(SHEET_NAME);
 
@@ -176,16 +168,20 @@ public class Form103ConvertToXlsService {
 
         FileOutputStream out = null;
         try {
-            out = new FileOutputStream(new File(path.getFileNameAfter()+ XLS_FILE_FORMAT));
+            out = new FileOutputStream(new File(path.getFileNameAfter() + XLS_FILE_FORMAT));
             workbook.write(out);
 
 
         } catch (FileNotFoundException e) {
+            log.error("Поток не закрыт! ", e);
+
         }
         try {
             out.close();
             workbook.close();
         } catch (IOException e) {
+            log.error("Поток не закрыт! ", e);
+
         }
     }
 
@@ -204,16 +200,17 @@ public class Form103ConvertToXlsService {
             ftpClient.login(user, password);
             ftpClient.enterLocalPassiveMode();
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
-            file = new File(path.getFileNameAfter()+XLS_FILE_FORMAT);
+            file = new File(path.getFileNameAfter() + XLS_FILE_FORMAT);
             uploadFile = new FileInputStream(file);
 
             String pathAndNameUploadFile = path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT;
 
             boolean done = ftpClient.storeFile(pathAndNameUploadFile, uploadFile);
             if (done) {
-                System.out.println("Файл загружен! "+path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT);
+                log.info("Файл загружен! " + path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT);
+
             } else {
-                System.out.println("Файл НЕ загружен! "+path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT);
+                log.error("Файл НЕ загружен! " + path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT);
 
             }
 
@@ -227,6 +224,7 @@ public class Form103ConvertToXlsService {
                     ftpClient.disconnect();
                 }
             } catch (IOException e) {
+                log.error("Ошибка при закрытий подключений к FTP ", e);
             }
         }
     }
@@ -240,24 +238,34 @@ public class Form103ConvertToXlsService {
         String ftpServer = "172.30.75.125";
 
         try {
-                ftpClient.connect(ftpServer, FTP_PORT);
-                ftpClient.login(user, password);
-                ftpClient.enterLocalPassiveMode();
-                ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+            ftpClient.connect(ftpServer, FTP_PORT);
+            ftpClient.login(user, password);
+            ftpClient.enterLocalPassiveMode();
+            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
 
-                File downloadFile1 = new File(path.getFileNameBefore()+XLS_FILE_FORMAT);
-                OutputStream outputStream1 = new BufferedOutputStream(new FileOutputStream(downloadFile1));
-                boolean success = ftpClient.retrieveFile(path.getFormPath()+"/"+path.getFileNameBefore() + XLS_FILE_FORMAT, outputStream1);
-                outputStream1.close();
+            File downloadFile1 = new File(path.getFileNameBefore() + XLS_FILE_FORMAT);
+            OutputStream outputStream1 = new BufferedOutputStream(new FileOutputStream(downloadFile1));
+            boolean success = ftpClient.retrieveFile(path.getFromPath() + "/" + path.getFileNameBefore() + XLS_FILE_FORMAT, outputStream1);
+            outputStream1.close();
 
-                if (success) {
-                    System.out.println("Файл успешно выгружен! " + path.getFormPath()+"/"+path.getFileNameBefore()+XLS_FILE_FORMAT);
+            if (success) {
+                log.info("Файл успешно выгружен! " + path.getFromPath() + "/" + path.getFileNameBefore() + XLS_FILE_FORMAT);
+
+            }
+        } catch (IOException e) {
+            log.error("Ошибка при закрытий подключений к FTP ", e);
+        } finally {
+            try {
+                if (ftpClient.isConnected()) {
+                    ftpClient.logout();
+                    ftpClient.disconnect();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("Ошибка при закрытий подключений к FTP ", e);
             }
-
         }
+
     }
+}
 
 

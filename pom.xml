@@ -5,7 +5,7 @@
 
 	<groupId>kazpost.nuris</groupId>
 	<artifactId>gep_doc_gen</artifactId>
-	<version>1.1.2_test</version>
+	<version>1.2.1</version>
 	<packaging>jar</packaging>
 
 	<name>GepDocGenerator</name>
