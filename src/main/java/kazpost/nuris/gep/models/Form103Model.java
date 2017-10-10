@@ -12,9 +12,9 @@ public class Form103Model {
         Form103XlsInfo form103XlsInfo = new Form103XlsInfo();
         form103XlsInfo.setFileName("form103");
         form103XlsInfo.setFilePath("/test");
-        form103XlsInfo.setFtpUser("gepadmin");
-        form103XlsInfo.setFtpPassword("6Wh6gzLX");
-        form103XlsInfo.setFtpAddress("172.30.75.125");
+        form103XlsInfo.setFtpUser("repadmin");
+        form103XlsInfo.setFtpPassword("6Wh6gzXZ");
+        form103XlsInfo.setFtpAddress("172.30.45.125");
 
         form103XlsSheet.setForm103XlsInfo(form103XlsInfo);
 

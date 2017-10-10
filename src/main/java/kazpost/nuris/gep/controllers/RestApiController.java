@@ -74,8 +74,4 @@ public class RestApiController {
             return new ResponseEntity("ERROR", HttpStatus.BAD_REQUEST);
         }
     }
-
-
-
-
 }
