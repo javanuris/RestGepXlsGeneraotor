@@ -3,8 +3,12 @@ package kazpost.nuris.gep.services;
 import kazpost.nuris.gep.models.*;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -44,7 +48,6 @@ public class Form103ConvertToXlsService {
 
         downloadFile(path);
 
-        Form103XlsService form103XlsService = new Form103XlsService();
         Form103XlsCellHeaderDescription header = new Form103XlsCellHeaderDescription();
         List<Form103XlsCellBodyDescription> bodyList = new ArrayList<>();
         Form103XlsSheet form103XlsSheet = new Form103XlsSheet();
@@ -53,14 +56,14 @@ public class Form103ConvertToXlsService {
         try {
             excelFileToRead = new FileInputStream(path.getFileNameBefore() + XLS_FILE_FORMAT);
         } catch (FileNotFoundException e) {
-            log.error("Файл не загружен", e);
+            log.error("File not uploaded ", e);
         }
 
         XSSFWorkbook wb = null;
         try {
             wb = new XSSFWorkbook(excelFileToRead);
         } catch (IOException e) {
-            log.error("Ошибка", e);
+            log.error("Error ", e);
         }
 
         XSSFSheet sheet = wb.getSheetAt(0);
@@ -125,7 +128,7 @@ public class Form103ConvertToXlsService {
 
         Form103ConvertToXlsService converterService = new Form103ConvertToXlsService();
         try {
-            converterService.generateForm103XlsFile(form103XlsSheet, path, form103XlsService);
+            converterService.generateForm103XlsFile(form103XlsSheet, path);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -133,13 +136,12 @@ public class Form103ConvertToXlsService {
         uploadFile(path);
     }
 
-
-    private void generateForm103XlsFile(Form103XlsSheet form103XlsSheet, Form103Path path, Form103XlsService form103XlsService) throws Exception {
+    private void generateForm103XlsFile(Form103XlsSheet form103XlsSheet, Form103Path path) throws Exception {
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet(SHEET_NAME);
 
-        form103XlsService.createXlsHeaderPart(form103XlsSheet, sheet);
-        form103XlsService.createXlsBodyPart(workbook, sheet);
+        createXlsHeaderPart(form103XlsSheet, sheet);
+        createXlsBodyPart(workbook, sheet);
 
         int rowOrder = BODY_ROW_ORDER;
         for (Form103XlsCellBodyDescription f : form103XlsSheet.getForm103XlsCellBodyDescription()) {
@@ -170,19 +172,90 @@ public class Form103ConvertToXlsService {
         try {
             out = new FileOutputStream(new File(path.getFileNameAfter() + XLS_FILE_FORMAT));
             workbook.write(out);
-
-
         } catch (FileNotFoundException e) {
-            log.error("Поток не закрыт! ", e);
-
+            log.error("The flow is not closed! ", e);
         }
         try {
             out.close();
             workbook.close();
         } catch (IOException e) {
-            log.error("Поток не закрыт! ", e);
-
+            log.error("The flow is not closed! ", e);
         }
+    }
+
+    private void createXlsBodyPart(HSSFWorkbook workbook, HSSFSheet sheet) {
+
+        Row rowBodyTableDescription = sheet.createRow(7);
+        rowBodyTableDescription.createCell(0).setCellValue("№ п.п.");
+        rowBodyTableDescription.createCell(1).setCellValue("Адресат");
+        rowBodyTableDescription.createCell(2).setCellValue("Индекс ОПС места назн.");
+        rowBodyTableDescription.createCell(3).setCellValue("Адрес места назначения");
+        rowBodyTableDescription.createCell(4).setCellValue("ШПИ");
+        rowBodyTableDescription.createCell(5).setCellValue("Вес (кг.)");
+        rowBodyTableDescription.createCell(6).setCellValue("Сумма объявленной ценности");
+        rowBodyTableDescription.createCell(7).setCellValue("Сумма нал. платежа");
+        rowBodyTableDescription.createCell(8).setCellValue("Особые отметки");
+        rowBodyTableDescription.createCell(9).setCellValue("Сотовый номер №1");
+        rowBodyTableDescription.createCell(10).setCellValue("Сотовый номер №2");
+        rowBodyTableDescription.createCell(11).setCellValue("E-mail");
+
+        CellStyle style = workbook.createCellStyle();
+        Font font = workbook.createFont();
+        font.setFontName(HSSFFont.FONT_ARIAL);
+        font.setBold(true);
+        font.setFontHeightInPoints((short) 11);
+        style.setFont(font);
+        style.setBorderBottom(BorderStyle.MEDIUM);
+        style.setBorderLeft(BorderStyle.MEDIUM);
+        style.setBorderRight(BorderStyle.MEDIUM);
+        style.setBorderTop(BorderStyle.MEDIUM);
+        rowBodyTableDescription.setRowStyle(style);
+
+        for (int i = 0; i < TOTAL_COLUMN_COUNT; i++) {
+            rowBodyTableDescription.getCell(i).setCellStyle(style);
+        }
+
+    }
+
+    private void createXlsHeaderPart(Form103XlsSheet form103XlsSheet, HSSFSheet sheet) {
+
+        Row rowDirection = sheet.createRow(0);
+        rowDirection.createCell(0).setCellValue("Направление");
+        rowDirection.createCell(1).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getDirection());
+
+        Row rowTypeRegisterMail = sheet.createRow(1);
+        rowTypeRegisterMail.createCell(0).setCellValue("Вид РПО");
+        rowTypeRegisterMail.createCell(1).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getTypeRegisteredMail());
+
+        Row rowCategoryRegisterMail = sheet.createRow(2);
+        rowCategoryRegisterMail.createCell(0).setCellValue("Категория РПО");
+        rowCategoryRegisterMail.createCell(1).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getCategoryRegisteredMail());
+
+        Row rowSender = sheet.createRow(3);
+        rowSender.createCell(0).setCellValue("Отправитель");
+        rowSender.createCell(1).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getSender());
+
+        rowSender.createCell(2).setCellValue("Сотовый номер №1 отпр");
+        rowSender.createCell(3).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getPhoneNumberFirstSender());
+
+        Row rowAppointmentsRegion = sheet.createRow(4);
+        rowAppointmentsRegion.createCell(0).setCellValue("Регион назначения");
+        rowAppointmentsRegion.createCell(1).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getAppointmentsRegion());
+
+        rowAppointmentsRegion.createCell(2).setCellValue("Сотовый номер №2 отпр.");
+        rowAppointmentsRegion.createCell(3).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getPhoneNumberSecondSender());
+
+        Row rowIndexOPSPlace = sheet.createRow(5);
+        rowIndexOPSPlace.createCell(0).setCellValue("Индекс места ОПС приема");
+        rowIndexOPSPlace.createCell(1).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getIndexOPSPlace());
+
+        rowIndexOPSPlace.createCell(2).setCellValue("e-mail отпр.");
+        rowIndexOPSPlace.createCell(3).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getSenderEmail());
+
+        Row rowAllRegisteredMail = sheet.createRow(6);
+        rowAllRegisteredMail.createCell(0).setCellValue("Всего РПО");
+        form103XlsSheet.getForm103XlsCellHeaderDescription().setAllRegisteredMail(form103XlsSheet.getForm103XlsCellBodyDescription().size());
+        rowAllRegisteredMail.createCell(1).setCellValue(form103XlsSheet.getForm103XlsCellHeaderDescription().getAllRegisteredMail());
     }
 
     private void uploadFile(Form103Path path) {
@@ -207,14 +280,15 @@ public class Form103ConvertToXlsService {
 
             boolean done = ftpClient.storeFile(pathAndNameUploadFile, uploadFile);
             if (done) {
-                log.info("Файл загружен! " + path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT);
+                log.info("File downloaded!" + path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT);
 
             } else {
-                log.error("Файл НЕ загружен! " + path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT);
+                log.error("The file is NOT loaded! " + path.getToPath() + "/" + path.getFileNameAfter() + XLS_FILE_FORMAT);
 
             }
 
         } catch (IOException e) {
+           log.error("Error when closing IO connections " , e);
         } finally {
             try {
                 uploadFile.close();
@@ -224,11 +298,10 @@ public class Form103ConvertToXlsService {
                     ftpClient.disconnect();
                 }
             } catch (IOException e) {
-                log.error("Ошибка при закрытий подключений к FTP ", e);
+                log.error("Error when closing FTP connections ", e);
             }
         }
     }
-
 
     private void downloadFile(Form103Path path) {
         FTPClient ftpClient = new FTPClient();
@@ -249,11 +322,11 @@ public class Form103ConvertToXlsService {
             outputStream1.close();
 
             if (success) {
-                log.info("Файл успешно выгружен! " + path.getFromPath() + "/" + path.getFileNameBefore() + XLS_FILE_FORMAT);
+                log.info( "The file was successfully unloaded! " + path.getFromPath() + "/" + path.getFileNameBefore() + XLS_FILE_FORMAT);
 
             }
         } catch (IOException e) {
-            log.error("Ошибка при закрытий подключений к FTP ", e);
+            log.error("Error when closing FTP connections ", e);
         } finally {
             try {
                 if (ftpClient.isConnected()) {
@@ -261,7 +334,7 @@ public class Form103ConvertToXlsService {
                     ftpClient.disconnect();
                 }
             } catch (IOException e) {
-                log.error("Ошибка при закрытий подключений к FTP ", e);
+                log.error("Error when closing FTP connections ", e);
             }
         }
 

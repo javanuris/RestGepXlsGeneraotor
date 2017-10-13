@@ -11,11 +11,13 @@ import java.io.IOException;
 
 @Component
 @Order(1)
-public class EncoderFilter implements Filter{
+public class EncoderFilter implements Filter {
 
-private String code = "UTF-8";
+    private static final String code = "UTF-8";
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+
     }
 
     @Override
@@ -29,7 +31,7 @@ private String code = "UTF-8";
             httpServletResponse.setCharacterEncoding(code);
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
-      }
+    }
 
     @Override
     public void destroy() {
